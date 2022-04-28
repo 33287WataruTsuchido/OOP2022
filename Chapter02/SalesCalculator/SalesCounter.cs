@@ -16,8 +16,8 @@ namespace SalesCalculator {
 
         //店舗別売上を求める
         public Dictionary<String, int> GetPerStoreSales() {
-            Dictionary<string, int> dict = new Dictionary<string, int>();
-            foreach (Sale sale in _sales) {
+            var dict = new Dictionary<string, int>();
+            foreach (var sale in _sales) {
                 if (dict.ContainsKey(sale.ShopName))
                     dict[sale.ShopName] += sale.Amount;
                 else
