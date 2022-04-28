@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SalesCalculator {
     public class SalesCounter {
-        private List<Sale> _sales; //csvファイルからよ見込んだデータ
+        private IEnumerable<Sale> _sales; //csvファイルからよ見込んだデータ
 
         //コンストラクタ
         public SalesCounter(string filepath) {
@@ -26,7 +26,7 @@ namespace SalesCalculator {
             return dict;
         }
             //売上データを読み込みSaleオブジェクトのリストを返す
-            public static List<Sale> ReadSales(string filePath) {
+            public static IEnumerable<Sale> ReadSales(string filePath) {
                 List<Sale> sales = new List<Sale>();
                 string[] lines = File.ReadAllLines(filePath);
                 foreach (string line in lines) {
