@@ -12,7 +12,7 @@ namespace Exercise02 {
 
             //p126
             if (int.TryParse(line, out num)) {
-                Console.WriteLine("{0:#:#}", num);//整数への変換成功
+                Console.WriteLine("{0:#,#}", num);//整数への変換成功
             }
             else {
                 Console.WriteLine("数値文字列でありません");//変換失敗
