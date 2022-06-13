@@ -12,14 +12,18 @@ namespace AddressBook {
     public partial class Form1 : Form {
         //住所データ管理用リスト 
         BindingList<Person> listPerson = new BindingList<Person>();
+                            
         public Form1() {
-                  
-            
+
+
             InitializeComponent();
             dagvPersons.DataSource = listPerson;
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+           // btDelete.Enabled = false;
+            
+
 
         }
 
@@ -35,7 +39,7 @@ namespace AddressBook {
             if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK) {
                 pbPicture.Image = Image.FromFile(ofdFileOpenDialog.FileName);
             }
-          
+
         }
 
         private void btAddPerson_Click(object sender, EventArgs e) {
@@ -46,19 +50,19 @@ namespace AddressBook {
                 Company = tbCompany.Text,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup()
-                
-        };
+
+            };
 
             listPerson.Add(newPerson);
-            
+
         }
 
         //チェックボックスにセットされている値をリストとして取り出す。
         private List<Person.GroupType> GetCheckBoxGroup() {
             var listGroup = new List<Person.GroupType>();
-            if (cbFamily.Checked == true ) {
+            if (cbFamily.Checked == true) {
                 listGroup.Add(Person.GroupType.家族);
-                
+
             }
             if (cbFriend.Checked == true) {
                 listGroup.Add(Person.GroupType.友人);
@@ -69,7 +73,7 @@ namespace AddressBook {
             if (cbOther.Checked == true) {
                 listGroup.Add(Person.GroupType.その他);
             }
-            
+
 
             return listGroup;
         }
@@ -92,8 +96,7 @@ namespace AddressBook {
         //データグリッドビューをクリックした時のイベントハンドラ
         private void dagvPersons_Click(object sender, EventArgs e) {
 
-            foreach (DataGridViewRow row in dagvPersons.SelectedRows) 
-                {
+            foreach (DataGridViewRow row in dagvPersons.SelectedRows) {
                 tbName.Text = listPerson[row.Index].Name;
                 tbMailAddress.Text = listPerson[row.Index].MailAddress;
                 tbAddress.Text = listPerson[row.Index].Address;
@@ -123,6 +126,29 @@ namespace AddressBook {
 
                 }
             }
+
+        }
+        //更新ボタンが押された時の処理
+        private void btUpdate_Click(object sender, EventArgs e) {
+            listPerson[dagvPersons.CurrentRow.Index].Name = tbName.Text;
+            listPerson[dagvPersons.CurrentRow.Index].MailAddress = tbMailAddress.Text;
+            listPerson[dagvPersons.CurrentRow.Index].Address = tbAddress.Text;
+            listPerson[dagvPersons.CurrentRow.Index].Company = tbCompany.Text;
+            listPerson[dagvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
+            listPerson[dagvPersons.CurrentRow.Index].Picture = pbPicture.Image;
+            dagvPersons.Refresh(); //データグリッドビュー更新
+
+
+
+        }
+
+        private void btDelete_Click(object sender, EventArgs e) {
+            MessageBox.Show("本当に削除しますか？",
+     "確認",
+     MessageBoxButtons.OKCancel,
+     MessageBoxIcon.Hand);
+            dagvPersons.Rows.RemoveAt(dagvPersons.CurrentRow.Index);
+
 
         }
     }
