@@ -45,6 +45,7 @@ namespace AddressBook {
                 Address = tbAddress.Text,
                 Company = tbCompany.Text,
                 Picture = pbPicture.Image,
+                listGroup = GetCheckBoxGroup()
                 
         };
 
@@ -52,8 +53,77 @@ namespace AddressBook {
             
         }
 
+        //チェックボックスにセットされている値をリストとして取り出す。
+        private List<Person.GroupType> GetCheckBoxGroup() {
+            var listGroup = new List<Person.GroupType>();
+            if (cbFamily.Checked == true ) {
+                listGroup.Add(Person.GroupType.家族);
+                
+            }
+            if (cbFriend.Checked == true) {
+                listGroup.Add(Person.GroupType.友人);
+            }
+            if (cbWork.Checked == true) {
+                listGroup.Add(Person.GroupType.仕事);
+            }
+            if (cbOther.Checked == true) {
+                listGroup.Add(Person.GroupType.その他);
+            }
+            
+
+            return listGroup;
+        }
+
         private void btPictureClear_Click(object sender, EventArgs e) {
             pbPicture.Image = null;
+        }
+
+        private void pbPicture_Click(object sender, EventArgs e) {
+
+        }
+
+        private void tbName_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void dagvPersons_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+        //データグリッドビューをクリックした時のイベントハンドラ
+        private void dagvPersons_Click(object sender, EventArgs e) {
+
+            foreach (DataGridViewRow row in dagvPersons.SelectedRows) 
+                {
+                tbName.Text = listPerson[row.Index].Name;
+                tbMailAddress.Text = listPerson[row.Index].MailAddress;
+                tbAddress.Text = listPerson[row.Index].Address;
+                tbCompany.Text = listPerson[row.Index].Company;
+                pbPicture.Image = listPerson[row.Index].Picture;
+
+                cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
+
+
+                foreach (var group in listPerson[row.Index].listGroup) {
+                    switch (group) {
+                        case Person.GroupType.家族:
+                            cbFamily.Checked = true;
+                            break;
+                        case Person.GroupType.友人:
+                            cbFriend.Checked = true;
+                            break;
+                        case Person.GroupType.仕事:
+                            cbWork.Checked = true;
+                            break;
+                        case Person.GroupType.その他:
+                            cbOther.Checked = true;
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+            }
+
         }
     }
 }

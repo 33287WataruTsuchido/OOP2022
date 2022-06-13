@@ -101,10 +101,14 @@ namespace AddressBook {
             // 
             this.dagvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dagvPersons.Location = new System.Drawing.Point(37, 321);
+            this.dagvPersons.MultiSelect = false;
             this.dagvPersons.Name = "dagvPersons";
             this.dagvPersons.RowTemplate.Height = 21;
+            this.dagvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dagvPersons.Size = new System.Drawing.Size(655, 150);
             this.dagvPersons.TabIndex = 1;
+            this.dagvPersons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dagvPersons_CellContentClick);
+            this.dagvPersons.Click += new System.EventHandler(this.dagvPersons_Click);
             // 
             // tbName
             // 
@@ -113,6 +117,7 @@ namespace AddressBook {
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(322, 31);
             this.tbName.TabIndex = 2;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // tbCompany
             // 
@@ -199,6 +204,7 @@ namespace AddressBook {
             this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPicture.TabIndex = 5;
             this.pbPicture.TabStop = false;
+            this.pbPicture.Click += new System.EventHandler(this.pbPicture_Click);
             // 
             // btPictureOpen
             // 
@@ -228,7 +234,7 @@ namespace AddressBook {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 524);
+            this.ClientSize = new System.Drawing.Size(751, 524);
             this.Controls.Add(this.btPictureClear);
             this.Controls.Add(this.btPictureOpen);
             this.Controls.Add(this.pbPicture);
