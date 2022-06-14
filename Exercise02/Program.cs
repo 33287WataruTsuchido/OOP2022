@@ -39,8 +39,8 @@ namespace Exercise02 {
             Exercise2_7(books);
             Console.WriteLine("-----");
 
-            Exercise2_8(books);
-            Console.WriteLine("-----");
+            //Exercise2_8(books);
+            //Console.WriteLine("-----");
         }
 
         
@@ -90,11 +90,11 @@ namespace Exercise02 {
             }
         }
 
-        private static void Exercise2_8(List<Book> books) {
+        /*private static void Exercise2_8(List<Book> books) {
             foreach (var item in books.Select((b, i => new { i, b.Title }))) { 
-                Console.WriteLine(item.i +1) +"冊目0" +item.Title));
+                Console.WriteLine((item.i +1) +"冊目0" +item.Title);
             }
-
+        */
 
         }
 
@@ -108,5 +108,3 @@ namespace Exercise02 {
             public int Price { get; set; }
             public int Pages { get; set; }
         }
-    }
-}

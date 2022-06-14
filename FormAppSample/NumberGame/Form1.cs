@@ -23,25 +23,16 @@ namespace NumberGame {
         private void Form1_Load(object sender, EventArgs e) {
 
             //乱数取得
-            randomNumber = rand.Next(1, (int)maxNum.Value);
-            this.Text = randomNumber.ToString();
+           // randomNumber = rand.Next(1, (int)maxNum.Value);
+            //this.Text = randomNumber.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e) {
             //入力した値とあらかじめ指定した乱数を比較し結果を表示
-            if (randomNumber > Number.Value)
+            //if (randomNumber > Number.Value)
                 
 
         }
               
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void statusStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
-
-        }
     }
 }

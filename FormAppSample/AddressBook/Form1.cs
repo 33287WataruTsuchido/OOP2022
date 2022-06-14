@@ -21,8 +21,12 @@ namespace AddressBook {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-           // btDelete.Enabled = false;
-            
+             
+             btDelete.Enabled = false; //削除ボタンをマスク
+             btUpdate.Enabled = false; //更新ボタンをマスク
+
+
+
 
 
         }
@@ -147,9 +151,13 @@ namespace AddressBook {
      "確認",
      MessageBoxButtons.OKCancel,
      MessageBoxIcon.Hand);
-            dagvPersons.Rows.RemoveAt(dagvPersons.CurrentRow.Index);
+           
+            listPerson.RemoveAt(dagvPersons.CurrentRow.Index);
+            if (listPerson.Count() == 0) {
+                btDelete.Enabled = false; //削除ボタンをマスク
+                btUpdate.Enabled = false; //更新ボタンをマスク
 
-
+            } 
         }
     }
 }

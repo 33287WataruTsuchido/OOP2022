@@ -101,7 +101,8 @@ namespace AddressBook {
             // 
             // dagvPersons
             // 
-            this.dagvPersons.AllowUserToAddRows = false;
+            this.dagvPersons.AllowUserToDeleteRows = false;
+            this.dagvPersons.AllowUserToResizeRows = false;
             this.dagvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dagvPersons.Location = new System.Drawing.Point(37, 321);
             this.dagvPersons.MultiSelect = false;
