@@ -41,7 +41,7 @@ namespace Exercise02 {
         }
 
         private static void Exercise02_2(List<string> names) {
-            var query = names.Count(n >= n.Countain('o'));
+            var query = names.Count(n => n.Contains('o'));
             Console.WriteLine();
            }
 

@@ -90,9 +90,9 @@ namespace Exercise02 {
             }
         }
 
-        /*private static void Exercise2_8(List<Book> books) {
-            foreach (var item in books.Select((b, i => new { i, b.Title })) { 
-                Console.WriteLine(item.i +1) +"冊目0" +item.Title);
+        private static void Exercise2_8(List<Book> books) {
+            foreach (var item in books.Select((b, i => new { i, b.Title }))) { 
+                Console.WriteLine(item.i +1) +"冊目0" +item.Title));
             }
 
 
