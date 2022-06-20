@@ -12,7 +12,7 @@ namespace AddressBook {
     public partial class Form1 : Form {
         //住所データ管理用リスト 
         BindingList<Person> listPerson = new BindingList<Person>();
-                            
+
         public Form1() {
 
 
@@ -21,9 +21,9 @@ namespace AddressBook {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-             
-             btDelete.Enabled = false; //削除ボタンをマスク
-             btUpdate.Enabled = false; //更新ボタンをマスク
+
+            btDelete.Enabled = false; //削除ボタンをマスク
+            btUpdate.Enabled = false; //更新ボタンをマスク
 
 
 
@@ -47,6 +47,13 @@ namespace AddressBook {
         }
 
         private void btAddPerson_Click(object sender, EventArgs e) {
+
+            if (String.IsNullOrWhiteSpace(tbName.Text)) {
+                MessageBox.Show("氏名が入力してください");
+
+
+                return;
+            }
             Person newPerson = new Person {
                 Name = tbName.Text,
                 MailAddress = tbMailAddress.Text,
@@ -59,7 +66,15 @@ namespace AddressBook {
 
             listPerson.Add(newPerson);
 
-        }
+            //コンボボックスに会社名を入力する。(重複なし)
+            if (cbCompany.Items.Contains(cbCompany.Text)) {
+
+                cbCompany.Items.Add(cbCompany.Text);
+            }
+        }    
+
+
+        
 
         //チェックボックスにセットされている値をリストとして取り出す。
         private List<Person.GroupType> GetCheckBoxGroup() {
@@ -158,6 +173,10 @@ namespace AddressBook {
                 btUpdate.Enabled = false; //更新ボタンをマスク
 
             } 
+        }
+
+        private void cbCompany_SelectedIndexChanged(object sender, EventArgs e) {
+
         }
     }
 }
