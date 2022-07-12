@@ -43,13 +43,13 @@ namespace Exercise01 {
            
             var xdoc = XDocument.Load("Sample.xml");
             var novelists = xdoc.Root.Elements()
-                                   .OrderBy(x =>(string)(x.Element("ballsport").Attribute("firstplayed")));
+                                   .OrderBy(x =>(int)(x.Element("ballsport").Attribute("firstplayed")));
             
             foreach (var item in novelists) {
                 var xfirstplayed = item.Element("firstplayed");
                 var xballsport = item.Element("ballsport");
                 
-                Console.WriteLine("{0}{1}",xballsport.Value,xfirstplayed.Value);
+                Console.WriteLine(xballsport.Value,xfirstplayed.Value);
 
 
             }
