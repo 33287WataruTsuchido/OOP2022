@@ -45,7 +45,7 @@ namespace Test02 {
         //問題２　偶数の最大値を表示
         //　　　　出力結果【94】
         private static void Exercise02(List<int> numbers) {
-            var max = numbers.Max( n / 2);.
+            var max = numbers.Max( n => n/2);
 
         }
         //問題３　昇順に並べて表示（遅延実行とする）
