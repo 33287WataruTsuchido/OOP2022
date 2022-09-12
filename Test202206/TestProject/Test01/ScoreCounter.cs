@@ -22,7 +22,7 @@ namespace Test01 {
                 var items = line.Split(',');
                 Student score = new Student {
                     Name = items[1],
-                    Subject = items[2],
+                    Subject = items[1],
                     Score = int.Parse(items[2])
                 };
                 scores.Add(score);
@@ -44,7 +44,7 @@ namespace Test01 {
         }
 
         return dict;
-    }
+        }
 
     }
 }
