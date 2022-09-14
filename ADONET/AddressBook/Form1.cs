@@ -135,9 +135,7 @@ namespace AddressBook {
             this.addressTableTableAdapter.Fill(this.infosys202227DataSet.AddressTable);
         }
 
-        private void 接続ToolStripMenuItem_Click_1(object sender, EventArgs e) {
-
-        }
+        
 
         private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e) {
             new Version().ShowDialog();
