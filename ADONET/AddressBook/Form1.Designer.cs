@@ -61,9 +61,9 @@ namespace AddressBook {
             this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.接続ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btSearchClear = new System.Windows.Forms.Button();
             this.ヘルプToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btSearchClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.addressTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infosys202227DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressTableDataGridView)).BeginInit();
@@ -75,6 +75,7 @@ namespace AddressBook {
             // 
             this.addressTableBindingSource.DataMember = "AddressTable";
             this.addressTableBindingSource.DataSource = this.infosys202227DataSet;
+            this.addressTableBindingSource.CurrentChanged += new System.EventHandler(this.addressTableBindingSource_CurrentChanged);
             // 
             // infosys202227DataSet
             // 
@@ -376,28 +377,16 @@ namespace AddressBook {
             // 接続ToolStripMenuItem
             // 
             this.接続ToolStripMenuItem.Name = "接続ToolStripMenuItem";
-            this.接続ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.接続ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.接続ToolStripMenuItem.Text = "接続";
             this.接続ToolStripMenuItem.Click += new System.EventHandler(this.接続ToolStripMenuItem_Click);
             // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.終了ToolStripMenuItem.Text = "終了";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
-            // 
-            // btSearchClear
-            // 
-            this.btSearchClear.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btSearchClear.Location = new System.Drawing.Point(458, 334);
-            this.btSearchClear.Name = "btSearchClear";
-            this.btSearchClear.Size = new System.Drawing.Size(63, 23);
-            this.btSearchClear.TabIndex = 14;
-            this.btSearchClear.Text = "クリア";
-            this.btSearchClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btSearchClear.UseVisualStyleBackColor = true;
-            this.btSearchClear.Click += new System.EventHandler(this.btSearchClear_Click);
             // 
             // ヘルプToolStripMenuItem1
             // 
@@ -410,9 +399,21 @@ namespace AddressBook {
             // バージョン情報ToolStripMenuItem
             // 
             this.バージョン情報ToolStripMenuItem.Name = "バージョン情報ToolStripMenuItem";
-            this.バージョン情報ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.バージョン情報ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.バージョン情報ToolStripMenuItem.Text = "バージョン情報";
             this.バージョン情報ToolStripMenuItem.Click += new System.EventHandler(this.バージョン情報ToolStripMenuItem_Click);
+            // 
+            // btSearchClear
+            // 
+            this.btSearchClear.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btSearchClear.Location = new System.Drawing.Point(458, 334);
+            this.btSearchClear.Name = "btSearchClear";
+            this.btSearchClear.Size = new System.Drawing.Size(63, 23);
+            this.btSearchClear.TabIndex = 14;
+            this.btSearchClear.Text = "クリア";
+            this.btSearchClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btSearchClear.UseVisualStyleBackColor = true;
+            this.btSearchClear.Click += new System.EventHandler(this.btSearchClear_Click);
             // 
             // Form1
             // 
