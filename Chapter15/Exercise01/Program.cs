@@ -11,7 +11,7 @@ namespace Exercise01 {
             Console.WriteLine();
             Exercise1_3();
             Console.WriteLine();
-            Exercise1_4();
+           // Exercise1_4();
             Console.WriteLine();
             Exercise1_5();
             Console.WriteLine();
@@ -35,28 +35,28 @@ namespace Exercise01 {
 
 
         private static void Exercise1_3() {
-           // var query = Library.Books
-                                 //  .OrderBy(x => x.PublishedYear)
-                                 //  .Select();
-   
+            var query = Library.Books
+                                   .GroupBy(b => b.PublishedYear)
+                                   .Select(g => new {PublicshedYear = g.Key,Count = g.Count()} )
+                                   .OrderBy(x => x.PublicshedYear);
 
-          //  foreach (var book in query) {
-            //    Console.WriteLine($"");
+            foreach (var book in query) {
+                Console.WriteLine("{0}年 {1}冊",book.PublicshedYear,book.Count);
 
-          //  }
+            }
         }
-        private static void Exercise1_4() {
-          //  var selected = Library.Books
-                                  // .Join(Library.Categories,
-                                  // book => book.CategoryId,
-                                  // (book,category) =
+        /*private static void Exercise1_4() {
+           var selected = Library.Books
+                                   .Join(Library.Categories,
+                                   book => book.CategoryId,
+                                   (book,category) =
                                   
                                    
-           // foreach (var book in selected) {
-             //   Console.WriteLine($"");
+            foreach (var book in selected) {
+                Console.WriteLine($"");
 
-           // }
-        }
+            }
+        }*/
 
         private static void Exercise1_5() {
             var query = Library.Books
@@ -73,9 +73,25 @@ namespace Exercise01 {
     }
 
         private static void Exercise1_6() {
+
         }
 
         private static void Exercise1_7() {
+
+      
+         /*  var groups = Library.Books
+            /   .Where(b => b.CategoryId )
+              .GroupBy(b => b.PublishedYear)
+              .OrderBy(g => g.Key);
+
+           foreach (var g in groups) {
+                Console.WriteLine($"{g.Key}年");
+                foreach (var book in g) {
+                    var category = Library.Categories.Where(b => b.Id == book.CategoryId).First();
+                    Console.WriteLine($" タイトル:{book.Title}");
+            
+                }*/
+         //   }
         }
 
         private static void Exercise1_8() {
