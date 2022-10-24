@@ -21,5 +21,11 @@ namespace ColarChecker {
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void SampleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+            int valu = (int)SampleSlider.Value;
+            
+
+        }
     }
 }
