@@ -12,19 +12,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Reflection;
 
 namespace ColarChecker {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window {
+        //コンストラクタ
         public MainWindow() {
             InitializeComponent();
+            
+
+            DataContext = GetColorList(); //←追加
+
         }
 
-        private void SampleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
-            int valu = (int)SampleSlider.Value;
-            
+        private MyColor[] GetColorList() {
+            return typeof(Colors).GetProperties(System.Reflection.BindingFlags.Public |System.Reflection.BindingFlags.Static)
+                .Select(i => new MyColor() { Color = (Color)i.GetValue(null), Name = i.Name }).ToArray();
+        }
+
+
+
+        public class MyColor {
+            public Color Color { get; set; }
+            public string Name { get; set; }
+        }
+
+        private void rSampleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+            colorLabel.Background = new SolidColorBrush(Color.FromRgb((byte)SampleSlider.Value, (byte)SampleSlider2.Value, (byte)SampleSlider3.Value));
+        }
+
+        private void Border_Loaded(object sender, RoutedEventArgs e) {
 
         }
     }
