@@ -93,7 +93,7 @@ namespace CarReportSystem {
 
             //データセットの中をデータベースへ反映（保存）
             this.Validate();
-            this.dgvCars.EndEdit();
+            this.carReportDBBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.infosys202227DataSet);
 
             //EnabledCheck(); //マスク処理呼び出し
@@ -207,14 +207,14 @@ namespace CarReportSystem {
             dgvCars.CurrentRow.Cells[1].Value = dtpRegistDate.Value;
             dgvCars.CurrentRow.Cells[2].Value = cbAuther.Text;
             dgvCars.CurrentRow.Cells[3].Value = GetRadioButtonMaker();
-            dgvCars.CurrentRow.Cells[4].Value = tbReport.Text;
-            dgvCars.CurrentRow.Cells[5].Value = pbPicture.Text;
+            dgvCars.CurrentRow.Cells[4].Value = cbCarName.Text;
+            dgvCars.CurrentRow.Cells[5].Value = tbReport.Text;
             dgvCars.CurrentRow.Cells[6].Value = ImageToByteArray(pbPicture.Image);
 
 
             //データセットの中をデータベースへ反映（保存）
             this.Validate();
-
+            this.carReportDBBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.infosys202227DataSet);
         }
 
@@ -257,7 +257,7 @@ namespace CarReportSystem {
             dgvCars.Rows.RemoveAt(dgvCars.CurrentRow.Index);
 
             this.Validate();
-            this.dgvCars.EndEdit();
+            this.carReportDBBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.infosys202227DataSet);
         }
 
