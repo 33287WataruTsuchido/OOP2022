@@ -39,7 +39,7 @@
         <TextBlock Text="G" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,2,50,31.667" Grid.RowSpan="2"/>
         <TextBlock Text="B" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,32,50,0.667" Grid.RowSpan="2"/>
         <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="23" Margin="75,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" 
-                 Text ="{Binding Value, ElementName=rSampleSlider, UpdateSourceTrigger=PropertyChanged }" Grid.RowSpan="2" />
+                 Text ="{Binding Value, ElementName=rSampleSlider, UpdateSourceTrigger=PropertyChanged}" Grid.RowSpan="2" />
         <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="23" Margin="75,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"
                  Text ="{Binding Value, ElementName=gSampleSlider, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="23" Margin="75,32,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" 
