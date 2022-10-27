@@ -32,7 +32,7 @@ namespace CarReportSystem {
 
         private void 設定ToolStripMenuItem_Click(object sender, EventArgs e) {
             //色設定ダイアログの表示
-            if (ofdOpenFileDialog.ShowDialog() == DialogResult.OK) {
+            if (colorDialog.ShowDialog() == DialogResult.OK) {
                 BackColor = colorDialog.Color;
                 settings.MainFromColor = colorDialog.Color.ToArgb();   //設定オブジェクトへセット
             }
