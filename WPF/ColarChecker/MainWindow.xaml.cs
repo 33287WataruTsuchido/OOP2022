@@ -60,7 +60,7 @@ namespace ColarChecker {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            RGBListBox = 
+         
 
         }
     }
