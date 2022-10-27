@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColarChecker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="500">
+        Title="MainWindow" Height="200" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -35,22 +35,25 @@
 
 
         </Grid.RowDefinitions>
-        <TextBlock Text="R" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2" Margin="20,2,29,32" Grid.RowSpan="2"/>
-        <TextBlock Text="G" Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="2" Margin="20,0,29,0"/>
-        <TextBlock Text="B" Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="2" Margin="20,1,29,32" Grid.RowSpan="2"/>
-        <TextBox Grid.Column="8" HorizontalAlignment="Left" Height="23" Margin="0,1,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" 
-                 Text ="{Binding Value, ElementName=SampleSlider, UpdateSourceTrigger=PropertyChanged }" />
-        <TextBox Grid.Column="8" HorizontalAlignment="Left" Height="23" Margin="0,1,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"
-                 Text ="{Binding Value, ElementName=SampleSlider2, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Grid.Column="8" HorizontalAlignment="Left" Height="23" Margin="0,1,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" 
-                 Text ="{Binding Value, ElementName=SampleSlider3, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="R" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,50,0"/>
+        <TextBlock Text="G" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,2,50,31.667" Grid.RowSpan="2"/>
+        <TextBlock Text="B" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,32,50,0.667" Grid.RowSpan="2"/>
+        <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="23" Margin="75,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" 
+                 Text ="{Binding Value, ElementName=rSampleSlider, UpdateSourceTrigger=PropertyChanged }" Grid.RowSpan="2" />
+        <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="23" Margin="75,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"
+                 Text ="{Binding Value, ElementName=gSampleSlider, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="23" Margin="75,32,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" 
+                 Text ="{Binding Value, ElementName=bSampleSlider, UpdateSourceTrigger=PropertyChanged}" Grid.RowSpan="2"/>
 
-        <Slider x:Name ="SampleSlider" Grid.ColumnSpan="2" Grid.Column="6" Margin="0,1,10,32" Grid.Row="1" Grid.RowSpan="2" Maximum="255" ValueChanged="rSampleSlider_ValueChanged" />
-        <Slider x:Name ="SampleSlider2" Grid.ColumnSpan="2" Grid.Column="6" Margin="0,0,10,32" Grid.Row="2" Grid.RowSpan="2" Maximum="255" ValueChanged="rSampleSlider_ValueChanged"/>
-        <Slider x:Name ="SampleSlider3" Grid.ColumnSpan="2" Grid.Column="6" Margin="0,32,10,0" Grid.Row="2" Grid.RowSpan="2" Maximum="255" ValueChanged="rSampleSlider_ValueChanged"/>
+        <Slider x:Name ="rSampleSlider" Grid.ColumnSpan="3" Grid.Column="3" Margin="50,0,60,33" Grid.Row="1" Grid.RowSpan="2" Maximum="255" ValueChanged="rSampleSlider_ValueChanged" TickPlacement="TopLeft"  
+                TickFrequency="20" />
+        <Slider x:Name ="gSampleSlider" Grid.ColumnSpan="3" Grid.Column="3" Margin="50,0,60,31.667" Grid.Row="2" Grid.RowSpan="2" Maximum="255" ValueChanged="rSampleSlider_ValueChanged" TickPlacement="TopLeft"  
+                TickFrequency="20" />
+        <Slider x:Name ="bSampleSlider" Grid.ColumnSpan="3" Grid.Column="3" Margin="50,32,60,33.667" Grid.Row="2" Grid.RowSpan="3" Maximum="255" ValueChanged="rSampleSlider_ValueChanged" TickPlacement="TopLeft"  
+                TickFrequency="20" />
         <Label  Name="colorLabel" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Height="102" Grid.ColumnSpan="3" Width="150" Background="Black" />
 
-        <ComboBox ItemsSource="{Binding}" SelectedValue="{Binding Color}" Margin="41,0,0,0" Height="24" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="155" Grid.ColumnSpan="4" Grid.Column="5" Grid.Row="4" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox ItemsSource="{Binding}" SelectedValue="{Binding Color}" Margin="50,0.333,0,0" Height="24" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="188" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="4" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -64,6 +67,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <Button Grid.ColumnSpan="2" Content="保存" Grid.Column="5" HorizontalAlignment="Left" Margin="75,0.333,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" Height="24" Click="Button_Click"/>
+        <ListBox Name="RGBListBox" Grid.ColumnSpan="3" Grid.Column="7" HorizontalAlignment="Right" Height="93" Grid.RowSpan="4" VerticalAlignment="Top" Width="225" Margin="0,33,62,0"/>
 
 
 

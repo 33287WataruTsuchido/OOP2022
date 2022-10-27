@@ -41,7 +41,7 @@ namespace ColarChecker {
         }
 
         private void rSampleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
-            colorLabel.Background = new SolidColorBrush(Color.FromRgb((byte)SampleSlider.Value, (byte)SampleSlider2.Value, (byte)SampleSlider3.Value));
+            colorLabel.Background = new SolidColorBrush(Color.FromRgb((byte)rSampleSlider.Value, (byte)gSampleSlider.Value, (byte)bSampleSlider.Value));
         }
 
         private void Border_Loaded(object sender, RoutedEventArgs e) {
@@ -53,6 +53,14 @@ namespace ColarChecker {
             var color = mycolor.Color;
             var name = mycolor.Name;
 
+            colorLabel.Background = new SolidColorBrush(Color.FromRgb(color.R, color.G, color.B));
+            rSampleSlider.Value = color.R;
+            gSampleSlider.Value = color.G;
+            bSampleSlider.Value = color.B;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            RGBListBox = 
 
         }
     }
