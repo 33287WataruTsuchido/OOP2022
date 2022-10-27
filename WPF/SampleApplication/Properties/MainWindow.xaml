@@ -48,7 +48,7 @@
         <Slider x:Name ="SampleSlider" Grid.ColumnSpan="2" Grid.Column="6" Margin="0,1,10,32" Grid.Row="1" Grid.RowSpan="2" Maximum="255" ValueChanged="rSampleSlider_ValueChanged" />
         <Slider x:Name ="SampleSlider2" Grid.ColumnSpan="2" Grid.Column="6" Margin="0,0,10,32" Grid.Row="2" Grid.RowSpan="2" Maximum="255" ValueChanged="rSampleSlider_ValueChanged"/>
         <Slider x:Name ="SampleSlider3" Grid.ColumnSpan="2" Grid.Column="6" Margin="0,32,10,0" Grid.Row="2" Grid.RowSpan="2" Maximum="255" ValueChanged="rSampleSlider_ValueChanged"/>
-        <Label  Name="colorLabel" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Height="102" Grid.ColumnSpan="3" Width="150" Background="Black" />
+        <Label  Name="colorLabel" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Height="102" Grid.ColumnSpan="3" Width="150" Background="Gray" />
 
         <ComboBox ItemsSource="{Binding}" SelectedValue="{Binding Color}" Margin="41,0,0,0" Height="24" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="155" Grid.ColumnSpan="4" Grid.Column="5" Grid.Row="4" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBox.ItemTemplate>
