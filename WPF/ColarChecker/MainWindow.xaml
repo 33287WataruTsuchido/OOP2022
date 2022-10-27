@@ -67,8 +67,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button Grid.ColumnSpan="2" Content="保存" Grid.Column="5" HorizontalAlignment="Left" Margin="75,0.333,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" Height="24" Click="Button_Click"/>
-        <ListBox Name="RGBListBox" Grid.ColumnSpan="3" Grid.Column="7" HorizontalAlignment="Right" Height="93" Grid.RowSpan="4" VerticalAlignment="Top" Width="225" Margin="0,33,62,0"/>
+        <Button Grid.ColumnSpan="3" Content="Stock" Grid.Column="7" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top" Width="215" Height="24" Click="Button_Click" Grid.RowSpan="2"/>
+        <ListBox x:Name="RGBListBox" Grid.ColumnSpan="3" Grid.Column="7" HorizontalAlignment="Right" Height="93" Grid.RowSpan="4" VerticalAlignment="Top" Width="225" Margin="0,22,62,0" Grid.Row="1"/>
 
 
 
