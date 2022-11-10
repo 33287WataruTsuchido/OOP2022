@@ -19,17 +19,20 @@ namespace ColarChecker {
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window {
+
+        List<MyColor> colorList = new List<MyColor>();
+        MyColor myColor = new MyColor();
         //コンストラクタ
         public MainWindow() {
             InitializeComponent();
-            
+
 
             DataContext = GetColorList(); //←追加
 
         }
 
         private MyColor[] GetColorList() {
-            return typeof(Colors).GetProperties(System.Reflection.BindingFlags.Public |System.Reflection.BindingFlags.Static)
+            return typeof(Colors).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)
                 .Select(i => new MyColor() { Color = (Color)i.GetValue(null), Name = i.Name }).ToArray();
         }
 
@@ -60,7 +63,43 @@ namespace ColarChecker {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-         
+            MyColor stColor = new MyColor();
+            RGBListBox.Items.Add($"R : {(byte)rSampleSlider.Value} G : {(byte)gSampleSlider.Value} B : {(byte)bSampleSlider.Value}");
+
+            var colorName = ((IEnumerable<MyColor>)DataContext)
+                                    .Where(c => c.Color.R == stColor.Color.R &&
+                                                c.Color.G == stColor.Color.G &&
+                                                c.Color.B == stColor.Color.B).FirstOrDefault();
+
+            if (colorName != null) {
+                RGBListBox.Items.Add(colorName.Name);
+            }
+            else 
+            {
+                RGBListBox.Items.Add("R:"+rValue.Text+ "G:" + gValue.Text + "B:" + bValue.Text);
+
+            }
+
+
+        }
+
+        private void setColor() {
+            var r = byte.Parse(rValue.Text);
+            var g = byte.Parse(gValue.Text);
+            var b = byte.Parse(bValue.Text);
+
+            Color color = Color.FromRgb(r, g, b);
+
+        }
+
+        private void RGBListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            rSampleSlider.Value = colorList[RGBListBox.SelectedIndex].Color.R;
+            gSampleSlider.Value = colorList[RGBListBox.SelectedIndex].Color.G;
+            bSampleSlider.Value = colorList[RGBListBox.SelectedIndex].Color.B;
+           
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e) {
 
         }
     }
