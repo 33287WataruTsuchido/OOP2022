@@ -74,9 +74,8 @@ namespace ColarChecker {
             if (colorName != null) {
                 RGBListBox.Items.Add(colorName.Name);
             }
-            else 
-            {
-                RGBListBox.Items.Add("R:"+rValue.Text+ "G:" + gValue.Text + "B:" + bValue.Text);
+            else {
+                RGBListBox.Items.Add("R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
 
             }
 
@@ -93,14 +92,28 @@ namespace ColarChecker {
         }
 
         private void RGBListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (RGBListBox.SelectedIndex == -1) return;
+
+
+
             rSampleSlider.Value = colorList[RGBListBox.SelectedIndex].Color.R;
             gSampleSlider.Value = colorList[RGBListBox.SelectedIndex].Color.G;
             bSampleSlider.Value = colorList[RGBListBox.SelectedIndex].Color.B;
-           
+
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e) {
 
+            var delIndex = RGBListBox.SelectedIndex;
+
+            if (delIndex == -1)
+                return;
+            RGBListBox.Items.Remove(delIndex);
+           
+
         }
+       
+
+        
     }
 }
