@@ -195,6 +195,10 @@ namespace WeatherApp
                     url1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/300000.json");
                     url2 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/300000.json");
                     break;
+                case "佐賀県":
+                    url1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/410000.json");
+                    url2 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/410000.json");
+                    break;
             }
             switch (cbChuugoku.SelectedItem)
             {
@@ -245,10 +249,7 @@ namespace WeatherApp
                     url1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/400000.json");
                     url2 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/400000.json");
                     break;
-                case "佐賀県":
-                    url1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/410000.json");
-                    url2 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/410000.json");
-                    break;
+               
                 case "長崎県":
                     url1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/420000.json");
                     url2 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/420000.json");
@@ -322,7 +323,6 @@ namespace WeatherApp
                 DateTime now = DateTime.Now;
                 label6.Text = now.ToLongTimeString();
                 label7.Text = json1.publishingOffice;
-               // label9.Text = json2[0].timeSeries[0].areas[0].temps[0];
                 tbWeather1.Text = json2[0].timeSeries[0].areas[0].weathers[0];
                 tbWeather2.Text = json2[0].timeSeries[0].areas[0].weathers[1];
                 tbWeather3.Text = json2[0].timeSeries[0].areas[0].weathers[2];
@@ -375,6 +375,39 @@ namespace WeatherApp
             
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+            
+       {
+          /*  var wc = new WebClient()
+            {
+                Encoding = Encoding.UTF8
+            };
 
+            var gunmaurl1 = " ";
+            var gunmaurl2 = " ";
+
+            //あらかじめ群馬県を表示（三日間）
+              gunmaurl1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/100000.json");
+              gunmaurl2 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/100000.json");
+            var jsongunma1 = JsonConvert.DeserializeObject<Rootobject>(gunmaurl1);
+            var jsongunma2 = JsonConvert.DeserializeObject<Class1[]>(gunmaurl2);
+            tbAreaInfo.Text = jsongunma1.text;
+            DateTime today = DateTime.Today;
+            label3.Text = (today.Month.ToString() + "/" + today.Day.ToString());
+            DateTime tomorrow = DateTime.Today.AddDays(1);
+            label4.Text = (tomorrow.Month.ToString() + "/" + tomorrow.Day.ToString());
+            DateTime twodays = DateTime.Today.AddDays(2);
+            label5.Text = (twodays.Month.ToString() + "/" + twodays.Day.ToString());
+            DateTime now = DateTime.Now;
+            label6.Text = now.ToLongTimeString();
+            label7.Text = jsongunma1.publishingOffice;
+            tbWeather1.Text = jsongunma2[0].timeSeries[0].areas[0].weathers[0];
+            tbWeather2.Text = jsongunma2[0].timeSeries[0].areas[0].weathers[1];
+            tbWeather3.Text = jsongunma2[0].timeSeries[0].areas[0].weathers[2];
+            pbWeather1.ImageLocation = "https://www.jma.go.jp/bosai/forecast/img/" + jsongunma2[0].timeSeries[0].areas[0].weatherCodes[0] + ".png";
+            pbWeather2.ImageLocation = "https://www.jma.go.jp/bosai/forecast/img/" + jsongunma2[0].timeSeries[0].areas[0].weatherCodes[1] + ".png";
+            pbWeather3.ImageLocation = "https://www.jma.go.jp/bosai/forecast/img/" + jsongunma2[0].timeSeries[0].areas[0].weatherCodes[2] + ".png";
+          */
+        }
     }
 }

@@ -64,10 +64,10 @@ namespace WeatherApp
             // 
             // tbAreaInfo
             // 
-            this.tbAreaInfo.Location = new System.Drawing.Point(821, 304);
+            this.tbAreaInfo.Location = new System.Drawing.Point(821, 285);
             this.tbAreaInfo.Multiline = true;
             this.tbAreaInfo.Name = "tbAreaInfo";
-            this.tbAreaInfo.Size = new System.Drawing.Size(296, 156);
+            this.tbAreaInfo.Size = new System.Drawing.Size(296, 175);
             this.tbAreaInfo.TabIndex = 0;
             // 
             // btGetWeather
@@ -97,7 +97,7 @@ namespace WeatherApp
             this.pbWeather1.Location = new System.Drawing.Point(697, 86);
             this.pbWeather1.Name = "pbWeather1";
             this.pbWeather1.Size = new System.Drawing.Size(117, 108);
-            this.pbWeather1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbWeather1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbWeather1.TabIndex = 5;
             this.pbWeather1.TabStop = false;
             // 
@@ -123,7 +123,7 @@ namespace WeatherApp
             "胆振・日高地方",
             "石狩・空知・後志地方",
             "渡島・檜山地方"});
-            this.cbHokkaidou.Location = new System.Drawing.Point(559, 86);
+            this.cbHokkaidou.Location = new System.Drawing.Point(556, 86);
             this.cbHokkaidou.Name = "cbHokkaidou";
             this.cbHokkaidou.Size = new System.Drawing.Size(76, 20);
             this.cbHokkaidou.TabIndex = 8;
@@ -139,7 +139,7 @@ namespace WeatherApp
             "秋田県",
             "山形県",
             "福島県"});
-            this.cbTouhoku.Location = new System.Drawing.Point(510, 216);
+            this.cbTouhoku.Location = new System.Drawing.Point(487, 210);
             this.cbTouhoku.Name = "cbTouhoku";
             this.cbTouhoku.Size = new System.Drawing.Size(75, 20);
             this.cbTouhoku.TabIndex = 8;
@@ -156,7 +156,7 @@ namespace WeatherApp
             "千葉県",
             "東京都",
             "神奈川県"});
-            this.cbKanntou.Location = new System.Drawing.Point(433, 324);
+            this.cbKanntou.Location = new System.Drawing.Point(434, 304);
             this.cbKanntou.Name = "cbKanntou";
             this.cbKanntou.Size = new System.Drawing.Size(75, 20);
             this.cbKanntou.TabIndex = 8;
@@ -175,7 +175,7 @@ namespace WeatherApp
             "富山県",
             "石川県",
             "福井県"});
-            this.cbChuubu.Location = new System.Drawing.Point(312, 255);
+            this.cbChuubu.Location = new System.Drawing.Point(316, 255);
             this.cbChuubu.Name = "cbChuubu";
             this.cbChuubu.Size = new System.Drawing.Size(76, 20);
             this.cbChuubu.TabIndex = 8;
@@ -206,7 +206,7 @@ namespace WeatherApp
             "徳島県",
             "愛媛県",
             "高知県"});
-            this.cbShikoku.Location = new System.Drawing.Point(153, 401);
+            this.cbShikoku.Location = new System.Drawing.Point(141, 390);
             this.cbShikoku.Name = "cbShikoku";
             this.cbShikoku.Size = new System.Drawing.Size(76, 20);
             this.cbShikoku.TabIndex = 8;
@@ -223,7 +223,7 @@ namespace WeatherApp
             "兵庫県",
             "奈良県",
             "和歌山県"});
-            this.cbKannsai.Location = new System.Drawing.Point(275, 352);
+            this.cbKannsai.Location = new System.Drawing.Point(300, 342);
             this.cbKannsai.Name = "cbKannsai";
             this.cbKannsai.Size = new System.Drawing.Size(76, 20);
             this.cbKannsai.TabIndex = 8;
@@ -238,7 +238,7 @@ namespace WeatherApp
             "岡山県",
             "広島県",
             "山口県"});
-            this.cbChuugoku.Location = new System.Drawing.Point(49, 324);
+            this.cbChuugoku.Location = new System.Drawing.Point(60, 330);
             this.cbChuugoku.Name = "cbChuugoku";
             this.cbChuugoku.Size = new System.Drawing.Size(76, 20);
             this.cbChuugoku.TabIndex = 8;
@@ -273,7 +273,7 @@ namespace WeatherApp
             "大東島地方",
             "宮古島地方",
             "八重山地方"});
-            this.cbOkinawa.Location = new System.Drawing.Point(258, 433);
+            this.cbOkinawa.Location = new System.Drawing.Point(278, 440);
             this.cbOkinawa.Name = "cbOkinawa";
             this.cbOkinawa.Size = new System.Drawing.Size(76, 20);
             this.cbOkinawa.TabIndex = 8;
@@ -295,7 +295,7 @@ namespace WeatherApp
             this.pbWeather3.Location = new System.Drawing.Point(996, 86);
             this.pbWeather3.Name = "pbWeather3";
             this.pbWeather3.Size = new System.Drawing.Size(117, 108);
-            this.pbWeather3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbWeather3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbWeather3.TabIndex = 5;
             this.pbWeather3.TabStop = false;
             // 
@@ -305,7 +305,7 @@ namespace WeatherApp
             this.pbWeather2.Location = new System.Drawing.Point(849, 86);
             this.pbWeather2.Name = "pbWeather2";
             this.pbWeather2.Size = new System.Drawing.Size(117, 108);
-            this.pbWeather2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbWeather2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbWeather2.TabIndex = 5;
             this.pbWeather2.TabStop = false;
             // 
@@ -414,6 +414,7 @@ namespace WeatherApp
             this.Controls.Add(this.tbAreaInfo);
             this.Name = "Form1";
             this.Text = "天気情報取得アプリ";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbWeather1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeather3)).EndInit();
