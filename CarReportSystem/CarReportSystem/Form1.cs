@@ -285,6 +285,10 @@ namespace CarReportSystem {
         private void pbPicture_Click(object sender, EventArgs e) {
 
         }
+
+        private void cbCarName_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
     }
 }
 
