@@ -1,0 +1,39 @@
+﻿<Window x:Class="MovieApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieApp"
+        mc:Ignorable="d"
+        Title="MovieApp" Height="450" Width="800">
+    <Grid>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="99*"/>
+
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="28*"/>
+
+
+
+
+
+
+
+
+
+        </Grid.RowDefinitions>
+
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="233,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+        <Label Content="What's the movie?" HorizontalAlignment="Left" Margin="208,100,0,0" VerticalAlignment="Top" FontSize="40" Width="337" Grid.ColumnSpan="2"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="291,33,0,0" VerticalAlignment="Top" Width="174" Height="32" Background="#FF0097FF" Click="btSearch_Click" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Button Content="履歴" HorizontalAlignment="Left" Margin="293,25,0,0" VerticalAlignment="Top" Width="100" Height="32" Background="Gray" Click="btHistory_Click" Grid.Column="1"/>
+
+    </Grid>
+</Window>
